@@ -75,7 +75,7 @@ public abstract class AbstractStopwatchStateMachineTest {
 	public void testScenarioRun() {
 		assertTimeEquals(0);
 		// directly invoke the button press event handler methods
-		model.onStartStop();
+		model.onSetReset();
 		onTickRepeat(5);
 		assertTimeEquals(5);
 	}
@@ -91,28 +91,15 @@ public abstract class AbstractStopwatchStateMachineTest {
 	public void testScenarioRunLapReset() {
 		assertTimeEquals(0);
 		// directly invoke the button press event handler methods
-		model.onStartStop();
+		model.onSetReset();
 		assertEquals(R.string.RUNNING, dependency.getState());
 		assertTrue(dependency.isStarted());
 		onTickRepeat(5);
 		assertTimeEquals(5);
-		model.onLapReset();
-		assertEquals(R.string.LAP_RUNNING, dependency.getState());
-		assertTrue(dependency.isStarted());
-		onTickRepeat(4);
-		assertTimeEquals(5);
-		model.onStartStop();
+		model.onSetReset();
 		assertEquals(R.string.LAP_STOPPED, dependency.getState());
 		assertFalse(dependency.isStarted());
 		assertTimeEquals(5);
-		model.onLapReset();
-		assertEquals(R.string.STOPPED, dependency.getState());
-		assertFalse(dependency.isStarted());
-		assertTimeEquals(9);
-		model.onLapReset();
-		assertEquals(R.string.STOPPED, dependency.getState());
-		assertFalse(dependency.isStarted());
-		assertTimeEquals(0);
 	}
 
 	/**
@@ -145,7 +132,7 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
 
 	private int timeValue = -1, stateId = -1;
 
-	private int runningTime = 0, lapTime = -1;
+	private int runningTime = 0;
 
 	private boolean started = false;
 
@@ -201,13 +188,5 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
 		return runningTime;
 	}
 
-	@Override
-	public void setLaptime() {
-		lapTime = runningTime;
-	}
 
-	@Override
-	public int getLaptime() {
-		return lapTime;
-	}
 }
