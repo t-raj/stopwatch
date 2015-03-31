@@ -45,7 +45,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
 	// known states
 	private final StopwatchState STOPPED     = new StoppedState(this);
-	private final StopwatchState RUNNING     = new RunningState(this);
+	private final StopwatchState RUNNING     = new DecrementingState(this);
 
 
 	// transitions
