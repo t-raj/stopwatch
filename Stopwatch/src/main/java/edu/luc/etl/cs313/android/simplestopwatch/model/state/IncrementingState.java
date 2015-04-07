@@ -14,16 +14,25 @@ class IncrementingState implements StopwatchState {
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onSetReset() { //switch to decrementing after 3 seconds
-        int time = this.getId();
-        if (time == 3 || time == 99) {
-            sm.toDecrementingState();
-        }
+    public void onSetReset() {
+        sm.toDecrementingState();
     }
 
     @Override
     public void onTick() {
-        throw new UnsupportedOperationException("onTick");
+        int time = this.getId();
+        if (time == 99) {
+            sm.toDecrementingState();
+            if (time == 0)
+            {
+                sm.actionUpdateView();
+                sm.actionAlarm();
+            }
+        }
+        else {
+            sm.actionInc();
+            sm.actionUpdateView();
+        }
     }
 
     @Override
