@@ -65,5 +65,5 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 	@Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
 	@Override public void actionUpdateView() { state.updateView(); }
     @Override public void actionAlarm()      { toAlarmingState(); actionAlarm(); state.updateView();}
-    @Override public void actionDecrement()  { toDecrementingState(); actionDecrement(); state.updateView();}
+    @Override public void actionDecrement()  { toDecrementingState(); actionDecrement(); actionUpdateView();}
 }

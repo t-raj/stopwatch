@@ -23,12 +23,14 @@ class DecrementingState implements StopwatchState { //changed from RunningState
         int time = this.getId();
         if(time > 0)
         {
-            sm.actionDecrement(); //change to decrement method
+            sm.actionDecrement();
+            sm.actionUpdateView();
         }
         else {
             sm.actionAlarm();
+            sm.actionStop();
+            sm.actionUpdateView();
         }
-        sm.actionUpdateView();
 	}
 
 	@Override

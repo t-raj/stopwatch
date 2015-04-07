@@ -15,24 +15,21 @@ class IncrementingState implements StopwatchState {
 
     @Override
     public void onSetReset() {
-        sm.toDecrementingState();
+        sm.toIncrementingState();
+        int time = this.getId();
+        if(time < 99)
+        {
+            time ++;
+        }
     }
 
     @Override
     public void onTick() {
-        int time = this.getId();
-        if (time == 99) {
-            sm.toDecrementingState();
-            if (time == 0)
-            {
-                sm.actionUpdateView();
-                sm.actionAlarm();
-            }
-        }
-        else {
-            sm.actionInc();
+        sm.actionDecrement();
+        for(int time = 0; time < 3; time++) {
+            sm.actionAlarm();
             sm.actionUpdateView();
-        }
+            }
     }
 
     @Override

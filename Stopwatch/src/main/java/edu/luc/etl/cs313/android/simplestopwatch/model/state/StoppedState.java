@@ -18,7 +18,7 @@ class StoppedState implements StopwatchState {
 
 	@Override
 	public void onTick() {
-		throw new UnsupportedOperationException("onTick");
+        sm.actionStop();
 	}
 
 	@Override
