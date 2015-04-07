@@ -20,8 +20,7 @@ interface StopwatchSMStateView { //added methods to go to the incrementing and a
 	void actionStart();
 	void actionStop();
 	void actionInc();
-    void actionIncrement(); //added increment method
-    void actionDecrement(); //added decrement method
+    void actionDecrement(); //added method
     void actionAlarm(); //added an action for alarming
 	void actionUpdateView();
 

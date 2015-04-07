@@ -121,10 +121,10 @@ public abstract class AbstractStopwatchActivityTest {
 		return (Button) getActivity().findViewById(R.id.startStop);
 	}
 
-	protected Button getResetLapButton() {
+	/*protected Button getResetLapButton() {
 		return (Button) getActivity().findViewById(R.id.resetLap);
 	}
-
+*/
     /**
      * Explicitly runs tasks scheduled to run on the UI thread in case this is required
      * by the testing framework, e.g., Robolectric.

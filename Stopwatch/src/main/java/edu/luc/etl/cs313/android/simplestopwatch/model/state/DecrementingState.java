@@ -1,10 +1,9 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
-import android.view.View;
-
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-class DecrementingState implements StopwatchState { //changed from RunningState because decrementing & incrementing are 2 different states
+class DecrementingState implements StopwatchState { //changed from RunningState
+// because decrementing & incrementing are 2 different states
 
 	public DecrementingState(final StopwatchSMStateView sm) {
 		this.sm = sm;
@@ -21,14 +20,13 @@ class DecrementingState implements StopwatchState { //changed from RunningState 
 
 	@Override
 	public void onTick() {
-		sm.actionInc(); //change to decrement method
-		//sm.toDecrementingState();
+        int time = this.getId();
+        while(time > 0)
+        {
+            sm.actionDecrement(); //change to decrement method
+        }
+        sm.actionUpdateView();
 	}
-
-    public void onDecrement(final View view) { //new decrement method that decrements the time & calls update view
-        sm.actionDecrement();
-        updateView();
-    }
 
 	@Override
 	public void updateView() {

@@ -1,26 +1,11 @@
 
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
-import android.content.Context;
+
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.view.View;
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -38,7 +23,7 @@ public class AlarmingState implements StopwatchState { //added state for when th
     private final StopwatchSMStateView sm;
 
     @Override
-    public void onSetReset() { //switch to stopped statewhen button is pushed
+    public void onSetReset() { //switch to stopped state when button is pushed
         sm.actionStop();
         sm.toStoppedState();
     }
@@ -46,10 +31,10 @@ public class AlarmingState implements StopwatchState { //added state for when th
     protected void playDefaultNotification() {
         final Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         final MediaPlayer mediaPlayer = new MediaPlayer();
-        final Context context = getApplicationContext();
+        //final Context context = getApplicationContext();
 
         try {
-            mediaPlayer.setDataSource(context, defaultRingtoneUri);
+           // mediaPlayer.setDataSource(context, defaultRingtoneUri);
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
             mediaPlayer.prepare();
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

@@ -39,6 +39,11 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 	}
 
     @Override
+    public void onSetReset() {
+    stateMachine.onSetReset();
+    }
+/*
+    @Override
 	public void onStartStop() {
 		stateMachine.onStartStop();
 	}
@@ -46,6 +51,6 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 	@Override
 	public void onLapReset() {
 		stateMachine.onLapReset();
-	}
+	}*/
 
 }
