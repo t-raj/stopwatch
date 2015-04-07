@@ -113,8 +113,8 @@ public abstract class AbstractStopwatchActivityTest {
 
 	protected int getDisplayedValue() {
 		final TextView ts = (TextView) getActivity().findViewById(R.id.seconds);
-		final TextView tm = (TextView) getActivity().findViewById(R.id.minutes);
-		return SEC_PER_MIN * tvToInt(tm) + tvToInt(ts);
+		//final TextView tm = (TextView) getActivity().findViewById(R.id.minutes);
+		//return SEC_PER_MIN * tvToInt(tm) + tvToInt(ts);
 	}
 
 	protected Button getStartStopButton() {

@@ -51,7 +51,7 @@ public class AlarmingState implements StopwatchState { //added state for when th
 
     @Override
     public void onTick() {
-        sm.actionInc();
+        sm.actionAlarm();
         sm.toStoppedState();
     }
 
