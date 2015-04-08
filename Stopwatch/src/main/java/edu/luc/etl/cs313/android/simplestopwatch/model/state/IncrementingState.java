@@ -20,15 +20,18 @@ class IncrementingState implements StopwatchState {
 
     private final StopwatchSMStateView sm;
 
+    int i = 3;
     @Override
     public void onSetReset() {
         sm.actionInc();
+        i = 3;
+
     }
 
     @Override
     public void onTick() {
-        int time = this.getTime();
-        if(time == 3)
+        i --;
+        if(i == 0)
         {
             sm.toDecrementingState();
         }

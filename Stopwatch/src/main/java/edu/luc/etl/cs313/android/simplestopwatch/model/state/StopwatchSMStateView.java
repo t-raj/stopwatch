@@ -16,7 +16,7 @@ interface StopwatchSMStateView { //added methods to go to the incrementing and a
 
 	// actions
 	void actionInit();
-	//void actionReset();
+	void actionReset();
     int actionGetRuntime();
 	void actionStart();
 	void actionStop();

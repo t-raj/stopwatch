@@ -134,6 +134,6 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     public int actionGetRuntime() {
         timeModel.getRuntime();
         actionUpdateView();
-        return actionGetRuntime();
+        return timeModel.getRuntime();
     }
 }
