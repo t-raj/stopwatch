@@ -125,7 +125,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
     //@Override public void actionDecrement()  { toDecrementingState(); actionDecrement(); actionUpdateView();}
     @Override
-    public void actionDecrement() {
+    public void actionDecrement() { //decrease the time by 1 when decrementing
         timeModel.decRuntime();
         actionUpdateView();
     }
