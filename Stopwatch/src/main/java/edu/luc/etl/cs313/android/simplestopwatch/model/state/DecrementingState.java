@@ -25,9 +25,8 @@ class DecrementingState implements StopwatchState { //changed from RunningState
 
 	@Override
 	public void updateView() {
-		int timer;
-        timer = this.getTime();
-        timer --;
+		int time = this.getTime();
+        time --;
         sm.updateUIRuntime();
 	}
 

@@ -27,8 +27,8 @@ class IncrementingState implements StopwatchState {
 
     @Override
     public void onTick() {
-        int timer = this.getTime();
-        if(timer == 3)
+        int time = this.getTime();
+        if(time == 3)
         {
             sm.toDecrementingState();
         }
