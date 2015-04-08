@@ -24,6 +24,7 @@ public class AlarmingState implements StopwatchState { //added state for when th
 
     @Override
     public void onSetReset() { //switch to stopped state when button is pushed
+        sm.actionStop();
         sm.toStoppedState();
     }
 
