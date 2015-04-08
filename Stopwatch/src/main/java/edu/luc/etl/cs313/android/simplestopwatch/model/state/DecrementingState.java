@@ -13,11 +13,11 @@ class DecrementingState implements StopwatchState { //changed from RunningState
 
 	@Override
 	public void onSetReset() {
-		sm.actionAlarm();
-	}
+		sm.actionStop();
+	} //stop when the button is pushed
 
 	@Override
-	public void onTick() {
+	public void onTick() { //decrement time by 1 every tick
         sm.actionDecrement();
 	}
 

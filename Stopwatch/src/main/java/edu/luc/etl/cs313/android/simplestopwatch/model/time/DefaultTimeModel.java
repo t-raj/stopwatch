@@ -24,7 +24,7 @@ public class DefaultTimeModel implements TimeModel {
     @Override
     public void decRuntime() {
         runningTime = (runningTime - SEC_PER_TICK) % SEC_PER_HOUR;
-    }
+    } //method to decrease the time by 1 second
 
     @Override
 	public int getRuntime() {
