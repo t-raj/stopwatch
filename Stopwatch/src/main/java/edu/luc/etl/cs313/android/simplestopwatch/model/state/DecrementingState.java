@@ -13,13 +13,12 @@ class DecrementingState implements StopwatchState { //changed from RunningState
 
 	@Override
 	public void onSetReset() {
-		sm.actionDecrement();
+		sm.actionAlarm();
 	}
-
 
 	@Override
 	public void onTick() {
-        sm.actionAlarm();
+        sm.actionDecrement();
 	}
 
 	@Override
