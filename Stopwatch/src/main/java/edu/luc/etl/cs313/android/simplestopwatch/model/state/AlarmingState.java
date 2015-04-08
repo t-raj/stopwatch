@@ -24,7 +24,6 @@ public class AlarmingState implements StopwatchState { //added state for when th
 
     @Override
     public void onSetReset() { //switch to stopped state when button is pushed
-        sm.actionStop();
         sm.toStoppedState();
     }
 
@@ -52,7 +51,6 @@ public class AlarmingState implements StopwatchState { //added state for when th
     @Override
     public void onTick() {
         sm.actionAlarm();
-        sm.toStoppedState();
     }
 
     @Override
@@ -63,5 +61,11 @@ public class AlarmingState implements StopwatchState { //added state for when th
     @Override
     public int getId() { //added a stateId for the alarming state
         return R.string.ALARMING;
+    }
+
+    @Override
+    public int getTime(){
+        int timer = R.id.timer;
+        return timer;
     }
 }

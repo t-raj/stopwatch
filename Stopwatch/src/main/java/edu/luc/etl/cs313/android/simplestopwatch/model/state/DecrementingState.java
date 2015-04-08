@@ -13,33 +13,32 @@ class DecrementingState implements StopwatchState { //changed from RunningState
 
 	@Override
 	public void onSetReset() {
-		sm.actionStop();
-		sm.toStoppedState();
+		sm.actionDecrement();
 	}
 
 
 	@Override
 	public void onTick() {
-        int time = this.getId();
-        if(time > 0)
-        {
-            sm.actionDecrement();
-            sm.actionUpdateView();
-        }
-        else {
-            sm.actionAlarm();
-            sm.actionStop();
-            sm.actionUpdateView();
-        }
+        sm.actionAlarm();
 	}
 
 	@Override
 	public void updateView() {
-		sm.updateUIRuntime();
+		int timer;
+        timer = this.getTime();
+        timer --;
+        sm.updateUIRuntime();
 	}
 
 	@Override
 	public int getId() {
 		return R.string.DECREMENTING;
 	} //changed the state ID from running to decrementing
+
+    @Override
+    public int getTime(){
+        int timer = R.id.timer;
+        return timer;
+    }
+
 }

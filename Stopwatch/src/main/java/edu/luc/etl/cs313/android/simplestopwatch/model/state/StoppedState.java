@@ -30,4 +30,10 @@ class StoppedState implements StopwatchState {
 	public int getId() {
 		return R.string.STOPPED;
 	}
+
+    @Override
+    public int getTime(){
+        int timer = R.id.timer;
+        return timer;
+    }
 }

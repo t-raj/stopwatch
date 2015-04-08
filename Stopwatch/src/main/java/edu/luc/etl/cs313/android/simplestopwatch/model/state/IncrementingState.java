@@ -1,6 +1,13 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import java.sql.Time;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import edu.luc.etl.cs313.android.simplestopwatch.model.clock.DefaultClockModel;
+import edu.luc.etl.cs313.android.simplestopwatch.model.time.DefaultTimeModel;
+import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
 /**
  * Created by emmahighland on 4/7/15.
@@ -16,21 +23,14 @@ class IncrementingState implements StopwatchState {
     @Override
     public void onSetReset() {
         sm.actionInc();
-        /*int time = this.getId();
-        if(time < 99)
-        {
-            time ++;
-        }*/
     }
 
     @Override
     public void onTick() {
-        int time = this.getId();
-        if(time == 3)
+        int timer = this.getTime();
+        if(timer == 3)
         {
-            sm.actionAlarm();
-            sm.actionDecrement();
-            sm.actionUpdateView();
+            sm.toDecrementingState();
         }
     }
 
@@ -42,5 +42,11 @@ class IncrementingState implements StopwatchState {
     @Override
     public int getId() {
         return R.string.INCREMENTING;
+    }
+
+    @Override
+    public int getTime(){
+        int timer = R.id.timer;
+        return timer;
     }
 }
