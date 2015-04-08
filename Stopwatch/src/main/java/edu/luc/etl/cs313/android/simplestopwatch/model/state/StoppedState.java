@@ -33,7 +33,6 @@ class StoppedState implements StopwatchState {
 
     @Override
     public int getTime(){
-        int timer = R.id.timer;
-        return timer;
+        return sm.actionGetRuntime();
     }
 }

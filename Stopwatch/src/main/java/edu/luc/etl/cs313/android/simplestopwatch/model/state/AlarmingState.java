@@ -65,7 +65,6 @@ public class AlarmingState implements StopwatchState { //added state for when th
 
     @Override
     public int getTime(){
-        int timer = R.id.timer;
-        return timer;
+        return sm.actionGetRuntime();
     }
 }

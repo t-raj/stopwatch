@@ -12,4 +12,5 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
  */
 public interface StopwatchStateMachine extends StopwatchUIListener, OnTickListener, StopwatchUIUpdateSource, StopwatchSMStateView {
     void actionReset();
+    int actionGetRuntime();
 }
