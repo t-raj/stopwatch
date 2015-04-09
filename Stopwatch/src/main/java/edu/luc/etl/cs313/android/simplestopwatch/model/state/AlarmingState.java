@@ -13,6 +13,8 @@ import java.io.IOException;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
+import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIListener;
+import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateSource;
 
 /**
  * Created by Tara on 3/29/2015.
@@ -25,12 +27,24 @@ public class AlarmingState implements StopwatchState { //added state for when th
 
     private final StopwatchSMStateView sm;
 
+
     @Override
     public void onSetReset() { //switch to stopped state when button is pushed
-        sm.actionStop();
+        //this.alarmStop();
         sm.toStoppedState();
+
     }
 
+    /*@Override
+    public void alarmStart(){
+        sm.actionAlarm();
+    }
+
+    @Override
+    public void alarmStop(){
+        sm.actionReset();
+    }
+*/
     @Override
     public void onTick() {
         sm.actionAlarm();

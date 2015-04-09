@@ -33,7 +33,17 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 		stateMachine.actionInit();
 	}
 
-	@Override
+    @Override
+    public void alarmStop() {
+        stateMachine.actionReset();
+    }
+
+    @Override
+    public void alarmStart() {
+        stateMachine.actionAlarm();
+    }
+
+    @Override
 	public void setUIUpdateListener(final StopwatchUIUpdateListener listener) {
 		stateMachine.setUIUpdateListener(listener);
 	}
@@ -42,6 +52,12 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
     public void onSetReset() {
     stateMachine.onSetReset();
     }
+
+    /*@Override
+    public void alarmStart() {stateMachine.actionAlarm();}
+
+    @Override
+    public void alarmStop() {stateMachine.actionStop();}*/
 /*
     @Override
 	public void onStartStop() {

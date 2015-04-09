@@ -19,6 +19,8 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
     private final TimeModel timeModel;
 
+    public StopwatchAdapter myStop = new StopwatchAdapter();
+
     private final ClockModel clockModel;
 
     /**
@@ -43,6 +45,16 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     public void onSetReset() {
         state.onSetReset();
     }
+
+    /*@Override
+    public void alarmStart() {
+        this.actionAlarm();
+    }
+
+    @Override
+    public void alarmStop() {
+        this.actionStop();
+    }*/
 
     @Override
     public void onTick() {
@@ -119,8 +131,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
     @Override
     public void actionAlarm() {
-        this.toAlarmingState();
-        state.updateView();
+        uiUpdateListener.alarmStart();
     }
 
     //@Override public void actionDecrement()  { toDecrementingState(); actionDecrement(); actionUpdateView();}

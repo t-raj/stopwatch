@@ -83,6 +83,9 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
         }
     }
 
+   public void alarmStart(){
+        playDefaultNotification();
+    }
 	/**
 	 * Updates the seconds and minutes in the UI.
 	 * @param time

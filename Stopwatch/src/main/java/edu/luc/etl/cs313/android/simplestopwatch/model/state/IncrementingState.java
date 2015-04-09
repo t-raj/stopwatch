@@ -32,6 +32,15 @@ class IncrementingState implements StopwatchState {
         i = 3;
     }
 
+   /* public void alarmStart(){
+        sm.actionAlarm();
+    }
+
+    @Override
+    public void alarmStop(){
+        sm.actionReset();
+    }*/
+
     @Override
     public void onTick() {
         i --;
@@ -40,12 +49,13 @@ class IncrementingState implements StopwatchState {
             sm.actionAlarm();
             sm.toDecrementingState();
         }
+
         if (counter <= max)
         {
             counter++;
         }
         else{
-            sm.actionAlarm();
+            //this.alarmStart();
             sm.toAlarmingState();
         }
     }

@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
@@ -137,6 +138,8 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
 
 	private boolean started = false;
 
+    private StopwatchAdapter myStop = new StopwatchAdapter();
+
 	public int getTime() {
 		return timeValue;
 	}
@@ -159,7 +162,17 @@ class UnifiedMockDependency implements TimeModel, ClockModel, StopwatchUIUpdateL
 		this.stateId = stateId;
 	}
 
-	@Override
+    @Override
+    public void alarmStart() {
+        myStop.playDefaultNotification();
+    }
+
+   /* @Override
+    public void makeSomeNoise() {
+        myStop.playDefaultNotification();
+    }*/
+
+    @Override
 	public void setOnTickListener(OnTickListener listener) {
 		throw new UnsupportedOperationException();
 	}

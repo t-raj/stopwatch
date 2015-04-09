@@ -21,15 +21,29 @@ class DecrementingState implements StopwatchState { //changed from RunningState
         int time = this.getTime();
         time --;
         if(time == i){
+            this.
             sm.actionReset();
             sm.toIncrementingState();
+            sm.actionAlarm();
+            //this.alarmStart();
         }
-        else{
+        else {
             sm.actionReset();
             sm.toStoppedState();
+            sm.actionAlarm();
+            //this.alarmStart();
         }
 	}
 
+    /*public void alarmStart(){
+        sm.actionAlarm();
+    }
+
+    @Override
+    public void alarmStop(){
+        sm.actionReset();
+    }
+*/
 	@Override
 	public void onTick() {
         int time = this.getTime();

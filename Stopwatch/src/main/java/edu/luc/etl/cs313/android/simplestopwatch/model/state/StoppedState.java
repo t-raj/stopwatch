@@ -18,9 +18,18 @@ class StoppedState implements StopwatchState {
         sm.toIncrementingState();
     }
 
+   /* public void alarmStart(){
+        sm.actionAlarm();
+    }
+
+    @Override
+    public void alarmStop(){
+        sm.actionStop();
+    }*/
+
     @Override
     public void onTick() {
-        sm.actionStop();
+        sm.actionReset();
     }
 
     @Override
