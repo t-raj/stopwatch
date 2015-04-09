@@ -118,8 +118,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
     @Override
     public void actionAlarm() {
-        toAlarmingState();
-        actionAlarm();
+        this.toAlarmingState();
         state.updateView();
     }
 

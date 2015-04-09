@@ -5,11 +5,14 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
+import android.content.Context;
 
 import java.io.IOException;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
 
 /**
  * Created by Tara on 3/29/2015.
@@ -31,10 +34,10 @@ public class AlarmingState implements StopwatchState { //added state for when th
     protected void playDefaultNotification() {
         final Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         final MediaPlayer mediaPlayer = new MediaPlayer();
-        //final Context context = getApplicationContext();
+        final Context context = getApplicationContext();
 
         try {
-           // mediaPlayer.setDataSource(context, defaultRingtoneUri);
+            mediaPlayer.setDataSource(context, defaultRingtoneUri);
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
             mediaPlayer.prepare();
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -67,5 +70,10 @@ public class AlarmingState implements StopwatchState { //added state for when th
     @Override
     public int getTime(){
         return sm.actionGetRuntime();
+    }
+
+    @Override
+    public Context getApplicationContext() {
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import android.content.Context;
+
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
 
@@ -12,4 +14,5 @@ interface StopwatchState extends StopwatchUIListener, OnTickListener {
 	void updateView();
 	int getId();
     int getTime();
+    Context getApplicationContext();
 }

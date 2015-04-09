@@ -1,5 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
+import android.content.Context;
+
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
@@ -20,11 +22,11 @@ class DecrementingState implements StopwatchState { //changed from RunningState
         time --;
         if(time == i){
             sm.actionReset();
-            sm.toStoppedState();
+            sm.toIncrementingState();
         }
         else{
             sm.actionReset();
-            sm.toIncrementingState();
+            sm.toStoppedState();
         }
 	}
 
@@ -35,7 +37,6 @@ class DecrementingState implements StopwatchState { //changed from RunningState
         sm.actionDecrement();
         sm.actionUpdateView();
         if(time == i){
-        sm.actionAlarm();
         sm.toAlarmingState();}
 	}
 
@@ -52,6 +53,11 @@ class DecrementingState implements StopwatchState { //changed from RunningState
     @Override
     public int getTime(){
         return sm.actionGetRuntime();
+    }
+
+    @Override
+    public Context getApplicationContext() {
+        return null;
     }
 
 }
