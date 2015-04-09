@@ -14,5 +14,4 @@ interface StopwatchState extends StopwatchUIListener, OnTickListener {
 	void updateView();
 	int getId();
     int getTime();
-    Context getApplicationContext();
 }

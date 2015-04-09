@@ -31,27 +31,6 @@ public class AlarmingState implements StopwatchState { //added state for when th
         sm.toStoppedState();
     }
 
-    protected void playDefaultNotification() {
-        final Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        final MediaPlayer mediaPlayer = new MediaPlayer();
-        final Context context = getApplicationContext();
-
-        try {
-            mediaPlayer.setDataSource(context, defaultRingtoneUri);
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
-            mediaPlayer.prepare();
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
-                }
-            });
-            mediaPlayer.start();
-        } catch (final IOException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
     @Override
     public void onTick() {
         sm.actionAlarm();
@@ -70,10 +49,5 @@ public class AlarmingState implements StopwatchState { //added state for when th
     @Override
     public int getTime(){
         return sm.actionGetRuntime();
-    }
-
-    @Override
-    public Context getApplicationContext() {
-        return null;
     }
 }

@@ -64,9 +64,4 @@ class IncrementingState implements StopwatchState {
     public int getTime(){
         return sm.actionGetRuntime();
     }
-
-    @Override
-    public Context getApplicationContext() {
-        return null;
-    }
 }

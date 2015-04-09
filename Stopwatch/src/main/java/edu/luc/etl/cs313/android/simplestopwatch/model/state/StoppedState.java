@@ -38,8 +38,4 @@ class StoppedState implements StopwatchState {
         return sm.actionGetRuntime();
     }
 
-    @Override
-    public Context getApplicationContext() {
-        return null;
-    }
 }

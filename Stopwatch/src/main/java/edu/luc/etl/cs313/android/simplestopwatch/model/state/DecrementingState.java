@@ -54,10 +54,4 @@ class DecrementingState implements StopwatchState { //changed from RunningState
     public int getTime(){
         return sm.actionGetRuntime();
     }
-
-    @Override
-    public Context getApplicationContext() {
-        return null;
-    }
-
 }
