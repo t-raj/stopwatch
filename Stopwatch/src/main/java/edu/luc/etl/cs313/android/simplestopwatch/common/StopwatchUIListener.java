@@ -6,5 +6,5 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
  * @author laufer
  */
 public interface StopwatchUIListener {
-	public void onSetReset();
+	public void onSetReset(); //changed from onStartStop
 }

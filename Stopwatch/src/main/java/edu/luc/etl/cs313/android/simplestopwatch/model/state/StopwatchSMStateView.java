@@ -21,9 +21,10 @@ interface StopwatchSMStateView { //added methods to go to the incrementing and a
 	void actionStart();
 	void actionStop();
 	void actionInc();
-    void actionDecrement(); //added method
+    void actionDecrement(); //added method to decrement time
     void actionAlarm(); //added an action for alarming
 	void actionUpdateView();
+
 
 	// state-dependent UI updates
 	void updateUIRuntime();

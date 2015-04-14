@@ -18,8 +18,9 @@ import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateSource;
 
 /**
  * Created by Tara on 3/29/2015.
+ * Added state for when the stopwatch is alarming. The alarm continues sounding until the button is pressed, causing the state to change to stopped.
  */
-public class AlarmingState implements StopwatchState { //added state for when the stopwatch is alarming
+public class AlarmingState implements StopwatchState {
 
     public AlarmingState(final StopwatchSMStateView sm) {
         this.sm = sm;
@@ -46,12 +47,12 @@ public class AlarmingState implements StopwatchState { //added state for when th
     }
 */
     @Override
-    public void onTick() {
+    public void onTick() {//sound alarm every tick
         sm.actionAlarm();
     }
 
     @Override
-    public void updateView() {
+    public void updateView() { //updates runtime
         sm.updateUIRuntime();
     }
 
@@ -61,7 +62,7 @@ public class AlarmingState implements StopwatchState { //added state for when th
     }
 
     @Override
-    public int getTime(){
+    public int getTime(){ //returns runtime
         return sm.actionGetRuntime();
     }
 }

@@ -66,14 +66,14 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
         uiUpdateListener.updateTime(timeModel.getRuntime());
     }
 
-    // known states
+    // known states: changed running to decrementing and added incrementing and alarming
     private final StopwatchState STOPPED = new StoppedState(this);
     private final StopwatchState INCREMENTING = new IncrementingState(this);
     private final StopwatchState ALARMING = new AlarmingState(this);
     private final StopwatchState DECREMENTING = new DecrementingState(this);
 
 
-    // transitions
+    // transitions: changed running to decrementing and added incrementing and alarming
     @Override
     public void toAlarmingState() {
         setState(ALARMING);
