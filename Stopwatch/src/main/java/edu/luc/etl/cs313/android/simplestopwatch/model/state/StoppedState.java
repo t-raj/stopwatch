@@ -4,6 +4,10 @@ import android.content.Context;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
+/**
+ * Switches to the incrementing state when the button is pushed
+ */
+
 class StoppedState implements StopwatchState {
 
     public StoppedState(final StopwatchSMStateView sm) {
